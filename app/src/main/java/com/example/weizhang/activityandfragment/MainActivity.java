@@ -18,12 +18,28 @@ public class MainActivity extends AppCompatActivity {
     protected void onResume() {
         super.onResume();
         Button button = (Button) findViewById(R.id.go_to_b_activity);
-        button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), SecondActivity.class);
-                startActivity(intent);
-            }
-        });
+        if (button != null) {
+            button.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent intent = new Intent(getApplicationContext(), SecondActivity.class);
+                    startActivity(intent);
+                }
+            });
+        }
+
+        Button webViewButton = (Button) findViewById(R.id.go_to_web_view_fragment);
+        if (webViewButton != null) {
+            webViewButton.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    getSupportFragmentManager()
+                            .beginTransaction()
+                            .replace(R.id.container, MyWebViewFragment.createInstance("Fragment ONE", "http://lzhangwei.github.io/2016/06/08/Activity-Fragment/"))
+                            .addToBackStack(MyWebViewFragment.TAG)
+                            .commit();
+                }
+            });
+        }
     }
 }

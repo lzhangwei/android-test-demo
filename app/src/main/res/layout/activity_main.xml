@@ -21,4 +21,18 @@
         android:layout_height="wrap_content"
         android:text="GO TO B Activity"
         android:layout_below="@id/main_text"/>
+
+    <Button
+        android:id="@+id/go_to_web_view_fragment"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="GO TO WEBVIEW FRAGMENT"
+        android:layout_below="@+id/go_to_b_activity"/>
+
+    <LinearLayout
+        android:id="@+id/container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/go_to_web_view_fragment"
+        android:orientation="vertical"/>
 </RelativeLayout>
